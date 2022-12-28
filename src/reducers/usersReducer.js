@@ -20,6 +20,10 @@ function usersReducer(state = initialState, action) {
       return {
         ...state, usersList: [...state.usersList, action.payload]
       }
+      case 'REMOVE_USER':
+        return {
+         ...state,usersList: [""]
+        }
     default:
       return state;
   }

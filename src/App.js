@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -24,6 +23,17 @@ function App() {
       }
     })
   }
+  const removeUser = () => {
+    dispatch({
+      type : 'REMOVE_USER',
+      payload :{
+        name : "Gudiya",
+        mobile : "8756379005",
+        email : "gudiya@gmail.com"
+      }
+      
+    })
+  }
 
   return (
     <div className="App">
@@ -38,6 +48,9 @@ function App() {
             <th>
               Mobile
             </th>
+            <th>
+              Action
+            </th>
           </tr>
           <tbody>
           {usersInfo && usersInfo.usersList.map((user, index) =>
@@ -50,6 +63,9 @@ function App() {
               </td>
               <td>
                 { user.mobile }
+              </td>
+              <td>
+                <button onClick={removeUser}>Remove</button>
               </td>
             </tr>
             )
